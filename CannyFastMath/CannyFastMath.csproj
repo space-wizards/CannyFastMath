@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="JetBrains.Annotations" Version="2019.1.3" PrivateAssets="All" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="**\*.*.cs">
+            <WouldDependOn>$([System.Text.RegularExpressions.Regex]::Replace('%(Filename)', '^(.*?)\..*$', '$1.cs'))</WouldDependOn>
+            <DependentUpon Condition="'%(DependentUpon)' == '' And '%(WouldDependOn)' != '%(Filename)'">%(WouldDependOn)</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="*.csproj.*" />
+    </ItemGroup>
+
+</Project>
