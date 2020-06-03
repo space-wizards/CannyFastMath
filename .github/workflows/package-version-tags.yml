@@ -37,6 +37,6 @@ jobs:
       uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
       with:
         nupkg-path: './CannyFastMath/nupkg/*.nupkg'
-        repo-owner: 'Bannerlord-Unofficial-Tools-Resources'
-        gh-user: 'Bannerlord-Unofficial-Tools-Resources'
+        repo-owner: 'space-wizards'
+        gh-user: 'space-wizards'
         token: ${{ secrets.GITHUB_TOKEN }}
