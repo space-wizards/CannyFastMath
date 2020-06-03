@@ -1,5 +1,8 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime;
 using System.Runtime.CompilerServices;
+using System.Runtime.Intrinsics;
+using System.Runtime.Intrinsics.X86;
 using System.Runtime.Versioning;
 using JetBrains.Annotations;
 
@@ -17,8 +20,10 @@ namespace CannyFastMath {
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    [SuppressMessage("ReSharper", "EqualExpressionComparison")]
+    [SuppressMessage("ReSharper", "CompareOfFloatsByEqualityOperator")]
     private static bool AreAnyNaN(double a, double b)
-      => double.IsNaN(a + b);
+      => IsNaN(a) || IsNaN(b);
 
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]

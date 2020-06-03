@@ -1,5 +1,7 @@
 using System.Runtime;
 using System.Runtime.CompilerServices;
+using System.Runtime.Intrinsics;
+using System.Runtime.Intrinsics.X86;
 using System.Runtime.Versioning;
 using JetBrains.Annotations;
 using PureAttribute = System.Diagnostics.Contracts.PureAttribute;
@@ -15,7 +17,7 @@ namespace CannyFastMath {
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static bool AreAnyNaN(float a, float b)
-      => float.IsNaN(a + b);
+      => IsNaN(a + b);
 
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
