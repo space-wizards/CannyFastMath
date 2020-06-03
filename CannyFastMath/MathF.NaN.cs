@@ -13,13 +13,15 @@ namespace CannyFastMath {
     // ReSharper disable ConditionIsAlwaysTrueOrFalse
     // ReSharper disable RedundantCast
     // ReSharper disable UnreachableCode
+    // ReSharper disable EqualExpressionComparison,CompareOfFloatsByEqualityOperator
 
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool IsNaN(float x)
-      => float.IsNaN(x);
+      => x != x;
 
+    // ReSharper restore EqualExpressionComparison,CompareOfFloatsByEqualityOperator
     // ReSharper restore UnreachableCode
     // ReSharper restore RedundantCast
     // ReSharper restore ConditionIsAlwaysTrueOrFalse
