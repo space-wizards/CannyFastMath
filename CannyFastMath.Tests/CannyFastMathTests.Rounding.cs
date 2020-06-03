@@ -3,82 +3,12 @@ using System.Diagnostics;
 using System.Runtime.Intrinsics.X86;
 using System.Security.Cryptography;
 using NUnit.Framework;
+using static CannyFastMath.Tests.Helpers;
 
 namespace CannyFastMath.Tests {
 
   public partial class CannyFastMathTests {
 
-    [Test]
-    [TestCase(5000000)]
-    public void FloorFloatPerf(int count) {
-      var data = new float[count];
-      PopulateRandomData(data);
-
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-          System.MathF.Floor(data[i]);
-
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"System.MathF.Floor processed {count} floats in {t}ms");
-      }
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-          MathF.Floor(data[i]);
-
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.MathF.Floor processed {count} floats in {t}ms");
-      }
-    }
-
-    [Test]
-    [TestCase(5000000)]
-    public void CeilingFloatPerf(int count) {
-      var data = new float[count];
-      PopulateRandomData(data);
-
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-          System.MathF.Ceiling(data[i]);
-
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"System.MathF.Floor processed {count} floats in {t}ms");
-      }
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-          MathF.Ceiling(data[i]);
-
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.MathF.Floor processed {count} floats in {t}ms");
-      }
-    }
-
-    [Test]
-    [TestCase(5000000)]
-    public void RoundFloatPerf(int count) {
-      var data = new float[count];
-      PopulateRandomData(data);
-
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-          System.MathF.Round(data[i]);
-
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"System.MathF.Floor processed {count} floats in {t}ms");
-      }
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-          MathF.Round(data[i]);
-
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.MathF.Floor processed {count} floats in {t}ms");
-      }
-    }
 
     [Test]
     [TestCase(1000)]

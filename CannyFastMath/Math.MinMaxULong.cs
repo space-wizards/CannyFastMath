@@ -1,22 +1,44 @@
+using System.Diagnostics.Contracts;
+using System.Runtime;
 using System.Runtime.CompilerServices;
-using System.Runtime.Intrinsics.X86;
+using System.Runtime.Versioning;
 
 namespace CannyFastMath {
 
   public static partial class Math {
 
+    [Pure]
+    [NonVersionable, TargetedPatchingOptOut("")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static ulong MinNaive(ulong a, ulong b) {
+      var sel = (ulong)Selector(a < b);
+      return (a & sel) | (b & ~ sel);
+    }
+
+    [Pure]
+    [NonVersionable, TargetedPatchingOptOut("")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static ulong MaxNaive(ulong a, ulong b) {
+      var sel = (ulong)Selector(a < b);
+      return (a & ~ sel) | (b & sel);
+    }
+    
 #pragma warning disable 162
     // ReSharper disable ConditionIsAlwaysTrueOrFalse
     // ReSharper disable RedundantCast
     // ReSharper disable UnreachableCode
 
+    [Pure]
+    [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static ulong Min(ulong a, ulong b)
-      => System.Math.Min(a, b);
+      => SlowMathIntegerMinMax ? MinNaive(a, b) : System.Math.Min(a, b);
 
+    [Pure]
+    [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static ulong Max(ulong a, ulong b)
-      => System.Math.Max(a, b);
+      => SlowMathIntegerMinMax ? MaxNaive(a, b) : System.Math.Max(a, b);
 
     // ReSharper restore UnreachableCode
     // ReSharper restore RedundantCast
