@@ -17,6 +17,12 @@ namespace CannyFastMath {
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool AreAnyNaN(double a, double b)
+      => double.IsNaN(a + b);
+
+    [Pure]
+    [NonVersionable, TargetedPatchingOptOut("")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static byte One(bool v)
       => Unsafe.As<bool, byte>(ref Unsafe.AsRef(v));
 
@@ -106,51 +112,61 @@ namespace CannyFastMath {
     public static double Round(double v)
       => System.Math.Round(v);
 
+    [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Floor(double v)
       => System.Math.Floor(v);
 
+    [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Ceiling(double v)
       => System.Math.Ceiling(v);
 
+    [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Truncate(double v)
       => System.Math.Truncate(v);
 
+    [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double ScaleB(double x, int n)
       => System.Math.ScaleB(x, n);
 
+    [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double DivRem(int a, int b, out int rem)
       => System.Math.DivRem(a, b, out rem);
 
+    [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double DivRem(long a, long b, out long rem)
       => System.Math.DivRem(a, b, out rem);
 
+    [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static uint Log2(int v)
       => v <= 0 ? 0 : Log2(unchecked((uint) v));
 
+    [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static uint Log2(uint v)
       => unchecked((uint) System.Numerics.BitOperations.Log2(v));
 
+    [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static ulong Log2(long v)
       => v <= 0 ? 0 : Log2(unchecked((ulong) v));
 
+    [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static ulong Log2(ulong v)

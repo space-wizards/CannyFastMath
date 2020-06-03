@@ -13,9 +13,6 @@ namespace CannyFastMath.Tests {
     public void MinFloatFuzz(int count) {
       var floats = new float[count];
       PopulateRandomData(floats);
-      // CannyFastMath does not guarantee NaN propagation
-      ChangeNaNs(floats, RandomNumberGenerator.GetInt32(int.MinValue, int.MaxValue));
-
       for (var i = 0; i < count; ++i)
       for (var j = 0; j < count; ++j) {
         var expected = System.MathF.Min(floats[i], floats[j]);
@@ -35,9 +32,6 @@ namespace CannyFastMath.Tests {
     public void MaxFloatFuzz(int count) {
       var floats = new float[count];
       PopulateRandomData(floats);
-      // CannyFastMath does not guarantee NaN propagation
-      ChangeNaNs(floats, RandomNumberGenerator.GetInt32(int.MinValue, int.MaxValue));
-
       for (var i = 0; i < count; ++i)
       for (var j = 0; j < count; ++j) {
         var expected = System.MathF.Min(floats[i], floats[j]);

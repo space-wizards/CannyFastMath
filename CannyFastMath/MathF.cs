@@ -14,6 +14,12 @@ namespace CannyFastMath {
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool AreAnyNaN(float a, float b)
+      => float.IsNaN(a + b);
+
+    [Pure]
+    [NonVersionable, TargetedPatchingOptOut("")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Deg2Rad(float degrees)
       => degrees * (π / 180);
 

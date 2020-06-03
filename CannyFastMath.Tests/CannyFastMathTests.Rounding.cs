@@ -17,9 +17,6 @@ namespace CannyFastMath.Tests {
         Assert.Inconclusive("Need SSE4.1 or fallback is default system function.");
       var floats = new float[count];
       PopulateRandomData(floats);
-      // CannyFastMath does not guarantee NaN propagation
-      ChangeNaNs(floats, RandomNumberGenerator.GetInt32(int.MinValue, int.MaxValue));
-
       for (var i = 0; i < count; ++i) {
         var expected = System.MathF.Floor(floats[i]);
         var actual = MathF.Floor(floats[i]);
@@ -40,9 +37,6 @@ namespace CannyFastMath.Tests {
         Assert.Inconclusive("Need SSE4.1 or fallback is default system function.");
       var floats = new float[count];
       PopulateRandomData(floats);
-      // CannyFastMath does not guarantee NaN propagation
-      ChangeNaNs(floats, RandomNumberGenerator.GetInt32(int.MinValue, int.MaxValue));
-
       for (var i = 0; i < count; ++i) {
         var expected = System.MathF.Ceiling(floats[i]);
         var actual = MathF.Ceiling(floats[i]);
@@ -63,9 +57,6 @@ namespace CannyFastMath.Tests {
         Assert.Inconclusive("Need SSE4.1 or fallback is default system function.");
       var floats = new float[count];
       PopulateRandomData(floats);
-      // CannyFastMath does not guarantee NaN propagation
-      ChangeNaNs(floats, RandomNumberGenerator.GetInt32(int.MinValue, int.MaxValue));
-
       for (var i = 0; i < count; ++i) {
         var expected = System.MathF.Round(floats[i]);
         var actual = MathF.Round(floats[i]);
@@ -86,9 +77,6 @@ namespace CannyFastMath.Tests {
         Assert.Inconclusive("Need SSE4.1 or fallback is default system function.");
       var floats = new float[count];
       PopulateRandomData(floats);
-      // CannyFastMath does not guarantee NaN propagation
-      ChangeNaNs(floats, RandomNumberGenerator.GetInt32(int.MinValue, int.MaxValue));
-
       for (var i = 0; i < count; ++i) {
         var expected = System.MathF.Truncate(floats[i]);
         var actual = MathF.Truncate(floats[i]);

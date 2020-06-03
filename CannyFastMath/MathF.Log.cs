@@ -1,3 +1,5 @@
+using System.Diagnostics.Contracts;
+using System.Runtime;
 using System.Runtime.CompilerServices;
 using System.Runtime.Versioning;
 
@@ -7,22 +9,26 @@ namespace CannyFastMath {
 
     public const float ⅇ = System.MathF.E;
 
-    [NonVersionable]
+    [Pure]
+    [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Exp(float v)
       => System.MathF.Exp(v);
 
-    [NonVersionable]
+    [Pure]
+    [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Log(float v)
       => System.MathF.Log(v);
 
-    [NonVersionable]
+    [Pure]
+    [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Log2(float v)
       => System.MathF.Log2(v);
 
-    [NonVersionable]
+    [Pure]
+    [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Log10(float v)
       => System.MathF.Log10(v);

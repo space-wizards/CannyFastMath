@@ -256,7 +256,7 @@ namespace CannyFastMath.Tests {
         }
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"System.MathF.Min processed {count * count} floats in {t}ms");
+        Console.WriteLine($"System.MathF.Max processed {count * count} floats in {t}ms");
       }
       {
         var sw = Stopwatch.StartNew();
@@ -266,7 +266,7 @@ namespace CannyFastMath.Tests {
         }
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.MathF.Min processed {count * count} floats in {t}ms");
+        Console.WriteLine($"FastMath.MathF.Max processed {count * count} floats in {t}ms");
       }
     }
 

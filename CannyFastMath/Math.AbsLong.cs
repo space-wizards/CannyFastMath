@@ -1,3 +1,4 @@
+using System.Diagnostics.Contracts;
 using System.Runtime;
 using System.Runtime.CompilerServices;
 using System.Runtime.Versioning;
@@ -6,6 +7,7 @@ namespace CannyFastMath {
 
   public static partial class Math {
 
+    [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static long AbsNaive(long a)
@@ -16,6 +18,7 @@ namespace CannyFastMath {
     // ReSharper disable RedundantCast
     // ReSharper disable UnreachableCode
 
+    [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static long Abs(long a)
