@@ -17,16 +17,17 @@ namespace CannyFastMath.Tests {
       for (var j = 0; j < count; ++j) {
         var expected = System.MathF.Min(floats[i], floats[j]);
         var actual = MathF.Min(floats[i], floats[j]);
-        if (float.IsNaN(expected))
-          //System.MathF.Min is not 754-2019 compliant
-          //Assert.IsNaN(actual);
-          ;
-        else
+        //System.MathF.Min is not 754-2019 compliant
+        //if (float.IsNaN(expected)) Assert.IsNaN(actual);
+        if (float.IsNaN(floats[i]) && float.IsNaN(floats[j]))
+          Assert.IsNaN(actual);
+        else if (!float.IsNaN(expected))
           Assert.AreEqual(
             expected,
             actual
           );
       }
+      Assert.IsNaN(System.MathF.Min(Single.NaN, Single.NaN));
     }
 
     [Test]
@@ -56,16 +57,17 @@ namespace CannyFastMath.Tests {
       for (var j = 0; j < count; ++j) {
         var expected = System.MathF.Min(floats[i], floats[j]);
         var actual = MathF.Min(floats[i], floats[j]);
-        if (float.IsNaN(expected))
-          //System.MathF.Max is not 754-2019 compliant
-          //Assert.IsNaN(actual);
-          ;
-        else
+        //System.MathF.Max is not 754-2019 compliant
+        //if (float.IsNaN(expected)) Assert.IsNaN(actual);
+        if (float.IsNaN(floats[i]) && float.IsNaN(floats[j]))
+          Assert.IsNaN(actual);
+        else if (!float.IsNaN(expected))
           Assert.AreEqual(
             expected,
             actual
           );
       }
+      Assert.IsNaN(System.MathF.Max(Single.NaN, Single.NaN));
     }
 
     [Test]
