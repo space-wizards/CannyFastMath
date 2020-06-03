@@ -11,7 +11,7 @@
         <Version>1.0.0</Version>
         <Copyright>Copyright © 2020 Tyler Young</Copyright>
         <Authors>Tyler Young</Authors>
-        <Company/>
+        <Company />
         <Description>Reasonable if minor performance improvements and sane expectations.</Description>
         <PackageId>CannyFastMath</PackageId>
         <PackageTags>canny fast math</PackageTags>
@@ -22,10 +22,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Fody" Version="6.1.2" PrivateAssets="All"/>
-        <PackageReference Include="InfoOf.Fody" Version="1.6.0" PrivateAssets="All"/>
-        <PackageReference Include="InlineIL.Fody" Version="1.4.0" PrivateAssets="All"/>
-        <PackageReference Include="JetBrains.Annotations" Version="2019.1.3" PrivateAssets="All"/>
+        <PackageReference Include="Fody" Version="6.1.2" PrivateAssets="All" />
+        <PackageReference Include="InfoOf.Fody" Version="1.6.0" PrivateAssets="All" />
+        <PackageReference Include="InlineIL.Fody" Version="1.4.0" PrivateAssets="All" />
+        <PackageReference Include="JetBrains.Annotations" Version="2019.1.3" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     </ItemGroup>
 
     <ItemGroup>
@@ -36,7 +37,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Remove="*.csproj.*"/>
+        <None Remove="*.csproj.*" />
     </ItemGroup>
     
     <ItemGroup>
