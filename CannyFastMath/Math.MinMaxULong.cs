@@ -10,19 +10,15 @@ namespace CannyFastMath {
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static ulong MinNaive(ulong a, ulong b) {
-      var sel = (ulong)Selector(a < b);
-      return (a & sel) | (b & ~ sel);
-    }
+    private static ulong MinNaive(ulong a, ulong b)
+      => a > b ? b : a;
 
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static ulong MaxNaive(ulong a, ulong b) {
-      var sel = (ulong)Selector(a < b);
-      return (a & ~ sel) | (b & sel);
-    }
-    
+    private static ulong MaxNaive(ulong a, ulong b)
+      => a > b ? a : b;
+
 #pragma warning disable 162
     // ReSharper disable ConditionIsAlwaysTrueOrFalse
     // ReSharper disable RedundantCast

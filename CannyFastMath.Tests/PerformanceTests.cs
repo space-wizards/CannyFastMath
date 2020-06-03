@@ -395,25 +395,27 @@ namespace CannyFastMath.Tests {
       var data = new uint[count];
       PopulateRandomData(data);
 
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-        for (var j = 0; j < count; ++j) {
-          System.Math.Min(data[i], data[j]);
-        }
+      for (var r = 0; r < 2; ++r) {
+        {
+          var sw = Stopwatch.StartNew();
+          for (var i = 0; i < count; ++i)
+          for (var j = 0; j < count; ++j) {
+            System.Math.Min(data[i], data[j]);
+          }
 
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"System.Math.Min processed {count * count} uints in {t}ms");
-      }
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-        for (var j = 0; j < count; ++j) {
-          Math.Min(data[i], data[j]);
+          var t = sw.ElapsedMilliseconds;
+          Console.WriteLine($"System.Math.Min processed {count * count} uints in {t}ms");
         }
+        {
+          var sw = Stopwatch.StartNew();
+          for (var i = 0; i < count; ++i)
+          for (var j = 0; j < count; ++j) {
+            Math.Min(data[i], data[j]);
+          }
 
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"CannyFastMath.Math.Min processed {count * count} uints in {t}ms");
+          var t = sw.ElapsedMilliseconds;
+          Console.WriteLine($"CannyFastMath.Math.Min processed {count * count} uints in {t}ms");
+        }
       }
     }
 
@@ -423,25 +425,27 @@ namespace CannyFastMath.Tests {
       var data = new uint[count];
       PopulateRandomData(data);
 
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-        for (var j = 0; j < count; ++j) {
-          System.Math.Max(data[i], data[j]);
-        }
+      for (var r = 0; r < 2; ++r) {
+        {
+          var sw = Stopwatch.StartNew();
+          for (var i = 0; i < count; ++i)
+          for (var j = 0; j < count; ++j) {
+            System.Math.Max(data[i], data[j]);
+          }
 
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"System.Math.Max processed {count * count} uints in {t}ms");
-      }
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-        for (var j = 0; j < count; ++j) {
-          Math.Max(data[i], data[j]);
+          var t = sw.ElapsedMilliseconds;
+          Console.WriteLine($"System.Math.Max processed {count * count} uints in {t}ms");
         }
+        {
+          var sw = Stopwatch.StartNew();
+          for (var i = 0; i < count; ++i)
+          for (var j = 0; j < count; ++j) {
+            Math.Max(data[i], data[j]);
+          }
 
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"CannyFastMath.Math.Max processed {count * count} uints in {t}ms");
+          var t = sw.ElapsedMilliseconds;
+          Console.WriteLine($"CannyFastMath.Math.Max processed {count * count} uints in {t}ms");
+        }
       }
     }
 
@@ -451,25 +455,27 @@ namespace CannyFastMath.Tests {
       var data = new long[count];
       PopulateRandomData(data);
 
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-        for (var j = 0; j < count; ++j) {
-          System.Math.Min(data[i], data[j]);
-        }
+      for (var r = 0; r < 2; ++r) {
+        {
+          var sw = Stopwatch.StartNew();
+          for (var i = 0; i < count; ++i)
+          for (var j = 0; j < count; ++j) {
+            System.Math.Min(data[i], data[j]);
+          }
 
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"System.Math.Min processed {count * count} longs in {t}ms");
-      }
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-        for (var j = 0; j < count; ++j) {
-          Math.Min(data[i], data[j]);
+          var t = sw.ElapsedMilliseconds;
+          Console.WriteLine($"System.Math.Min processed {count * count} longs in {t}ms");
         }
+        {
+          var sw = Stopwatch.StartNew();
+          for (var i = 0; i < count; ++i)
+          for (var j = 0; j < count; ++j) {
+            Math.Min(data[i], data[j]);
+          }
 
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"CannyFastMath.Math.Min processed {count * count} longs in {t}ms");
+          var t = sw.ElapsedMilliseconds;
+          Console.WriteLine($"CannyFastMath.Math.Min processed {count * count} longs in {t}ms");
+        }
       }
     }
 
@@ -479,25 +485,27 @@ namespace CannyFastMath.Tests {
       var data = new int[count];
       PopulateRandomData(data);
 
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-        for (var j = 0; j < count; ++j) {
-          System.Math.Max(data[i], data[j]);
-        }
+      for (var r = 0; r < 2; ++r) {
+        {
+          var sw = Stopwatch.StartNew();
+          for (var i = 0; i < count; ++i)
+          for (var j = 0; j < count; ++j) {
+            System.Math.Max(data[i], data[j]);
+          }
 
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"System.Math.Max processed {count * count} ints in {t}ms");
-      }
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-        for (var j = 0; j < count; ++j) {
-          Math.Max(data[i], data[j]);
+          var t = sw.ElapsedMilliseconds;
+          Console.WriteLine($"System.Math.Max processed {count * count} ints in {t}ms");
         }
+        {
+          var sw = Stopwatch.StartNew();
+          for (var i = 0; i < count; ++i)
+          for (var j = 0; j < count; ++j) {
+            Math.Max(data[i], data[j]);
+          }
 
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"CannyFastMath.Math.Max processed {count * count} ints in {t}ms");
+          var t = sw.ElapsedMilliseconds;
+          Console.WriteLine($"CannyFastMath.Math.Max processed {count * count} ints in {t}ms");
+        }
       }
     }
 
@@ -507,25 +515,27 @@ namespace CannyFastMath.Tests {
       var data = new ulong[count];
       PopulateRandomData(data);
 
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-        for (var j = 0; j < count; ++j) {
-          System.Math.Min(data[i], data[j]);
-        }
+      for (var r = 0; r < 2; ++r) {
+        {
+          var sw = Stopwatch.StartNew();
+          for (var i = 0; i < count; ++i)
+          for (var j = 0; j < count; ++j) {
+            System.Math.Min(data[i], data[j]);
+          }
 
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"System.Math.Min processed {count * count} ulongs in {t}ms");
-      }
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-        for (var j = 0; j < count; ++j) {
-          Math.Min(data[i], data[j]);
+          var t = sw.ElapsedMilliseconds;
+          Console.WriteLine($"System.Math.Min processed {count * count} ulongs in {t}ms");
         }
+        {
+          var sw = Stopwatch.StartNew();
+          for (var i = 0; i < count; ++i)
+          for (var j = 0; j < count; ++j) {
+            Math.Min(data[i], data[j]);
+          }
 
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"CannyFastMath.Math.Min processed {count * count} ulongs in {t}ms");
+          var t = sw.ElapsedMilliseconds;
+          Console.WriteLine($"CannyFastMath.Math.Min processed {count * count} ulongs in {t}ms");
+        }
       }
     }
 
@@ -535,25 +545,27 @@ namespace CannyFastMath.Tests {
       var data = new int[count];
       PopulateRandomData(data);
 
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-        for (var j = 0; j < count; ++j) {
-          System.Math.Max(data[i], data[j]);
-        }
+      for (var r = 0; r < 2; ++r) {
+        {
+          var sw = Stopwatch.StartNew();
+          for (var i = 0; i < count; ++i)
+          for (var j = 0; j < count; ++j) {
+            System.Math.Max(data[i], data[j]);
+          }
 
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"System.Math.Max processed {count * count} ints in {t}ms");
-      }
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-        for (var j = 0; j < count; ++j) {
-          Math.Max(data[i], data[j]);
+          var t = sw.ElapsedMilliseconds;
+          Console.WriteLine($"System.Math.Max processed {count * count} ints in {t}ms");
         }
+        {
+          var sw = Stopwatch.StartNew();
+          for (var i = 0; i < count; ++i)
+          for (var j = 0; j < count; ++j) {
+            Math.Max(data[i], data[j]);
+          }
 
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"CannyFastMath.Math.Max processed {count * count} ints in {t}ms");
+          var t = sw.ElapsedMilliseconds;
+          Console.WriteLine($"CannyFastMath.Math.Max processed {count * count} ints in {t}ms");
+        }
       }
     }
 
