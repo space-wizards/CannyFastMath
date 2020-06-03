@@ -33,7 +33,7 @@ namespace CannyFastMath.Tests {
         }
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.MathF.SinCos processed {count} ints in {t}ms");
+        Console.WriteLine($"CannyFastMath.MathF.SinCos processed {count} ints in {t}ms");
       }
       {
         var sw = Stopwatch.StartNew();
@@ -42,7 +42,7 @@ namespace CannyFastMath.Tests {
         }
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.MathF.SinCos processed {count} ints in {t}ms");
+        Console.WriteLine($"CannyFastMath.MathF.SinCos processed {count} ints in {t}ms");
       }
     }
 
@@ -66,7 +66,7 @@ namespace CannyFastMath.Tests {
           MathF.Floor(data[i]);
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.MathF.Floor processed {count} floats in {t}ms");
+        Console.WriteLine($"CannyFastMath.MathF.Floor processed {count} floats in {t}ms");
       }
     }
 
@@ -90,7 +90,7 @@ namespace CannyFastMath.Tests {
           MathF.Ceiling(data[i]);
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.MathF.Floor processed {count} floats in {t}ms");
+        Console.WriteLine($"CannyFastMath.MathF.Floor processed {count} floats in {t}ms");
       }
     }
 
@@ -114,7 +114,7 @@ namespace CannyFastMath.Tests {
           MathF.Round(data[i]);
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.MathF.Floor processed {count} floats in {t}ms");
+        Console.WriteLine($"CannyFastMath.MathF.Floor processed {count} floats in {t}ms");
       }
     }
 
@@ -138,7 +138,7 @@ namespace CannyFastMath.Tests {
           Math.Abs(data[i]);
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.Math.Abs processed {count} ints in {t}ms");
+        Console.WriteLine($"CannyFastMath.Math.Abs processed {count} ints in {t}ms");
       }
     }
 
@@ -162,7 +162,7 @@ namespace CannyFastMath.Tests {
           Math.Abs(data[i]);
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.Math.Abs processed {count} longs in {t}ms");
+        Console.WriteLine($"CannyFastMath.Math.Abs processed {count} longs in {t}ms");
       }
     }
 
@@ -186,7 +186,7 @@ namespace CannyFastMath.Tests {
           Math.Log2(data[i]);
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.Math.Log2 processed {count} ints in {t}ms");
+        Console.WriteLine($"CannyFastMath.Math.Log2 processed {count} ints in {t}ms");
       }
     }
 
@@ -210,7 +210,7 @@ namespace CannyFastMath.Tests {
           Math.Log2(data[i]);
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.Math.Log2 processed {count} longs in {t}ms");
+        Console.WriteLine($"CannyFastMath.Math.Log2 processed {count} longs in {t}ms");
       }
     }
 
@@ -238,7 +238,7 @@ namespace CannyFastMath.Tests {
         }
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.MathF.Min processed {count * count} floats in {t}ms");
+        Console.WriteLine($"CannyFastMath.MathF.Min processed {count * count} floats in {t}ms");
       }
     }
 
@@ -266,7 +266,7 @@ namespace CannyFastMath.Tests {
         }
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.MathF.Max processed {count * count} floats in {t}ms");
+        Console.WriteLine($"CannyFastMath.MathF.Max processed {count * count} floats in {t}ms");
       }
     }
 
@@ -294,7 +294,7 @@ namespace CannyFastMath.Tests {
         }
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.Math.Min processed {count * count} doubles in {t}ms");
+        Console.WriteLine($"CannyFastMath.Math.Min processed {count * count} doubles in {t}ms");
       }
     }
 
@@ -322,7 +322,7 @@ namespace CannyFastMath.Tests {
         }
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.Math.Min processed {count * count} doubles in {t}ms");
+        Console.WriteLine($"CannyFastMath.Math.Min processed {count * count} doubles in {t}ms");
       }
     }
 
@@ -330,29 +330,33 @@ namespace CannyFastMath.Tests {
     [TestCase(10000)]
     public void MinIntPerf(int count) {
       var data = new int[count];
+      var result = new int[count];
       PopulateRandomData(data);
 
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-        for (var j = 0; j < count; ++j) {
-          System.Math.Min(data[i], data[j]);
-        }
+      for (var r = 0; r < 2; ++r) {
+        {
+          var sw = Stopwatch.StartNew();
+          for (var i = 0; i < count; ++i)
+          for (var j = 0; j < count; ++j) {
+            result[j] = System.Math.Min(data[i], data[j]);
+          }
 
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"System.Math.Min processed {count * count} ints in {t}ms");
-      }
-      {
-        var sw = Stopwatch.StartNew();
-        for (var i = 0; i < count; ++i)
-        for (var j = 0; j < count; ++j) {
-          Math.Min(data[i], data[j]);
+          var t = sw.ElapsedMilliseconds;
+          Console.WriteLine($"System.Math.Min processed {count * count} ints in {t}ms");
         }
+        {
+          var sw = Stopwatch.StartNew();
+          for (var i = 0; i < count; ++i)
+          for (var j = 0; j < count; ++j) {
+            result[j] = Math.Min(data[i], data[j]);
+          }
 
-        var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.Math.Min processed {count * count} ints in {t}ms");
+          var t = sw.ElapsedMilliseconds;
+          Console.WriteLine($"CannyFastMath.Math.Min processed {count * count} ints in {t}ms");
+        }
       }
     }
+
 
     [Test]
     [TestCase(10000)]
@@ -380,7 +384,7 @@ namespace CannyFastMath.Tests {
           }
 
           var t = sw.ElapsedMilliseconds;
-          Console.WriteLine($"FastMath.Math.Max processed {count * count} ints in {t}ms");
+          Console.WriteLine($"CannyFastMath.Math.Max processed {count * count} ints in {t}ms");
         }
       }
     }
@@ -409,7 +413,7 @@ namespace CannyFastMath.Tests {
         }
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.Math.Min processed {count * count} uints in {t}ms");
+        Console.WriteLine($"CannyFastMath.Math.Min processed {count * count} uints in {t}ms");
       }
     }
 
@@ -437,7 +441,7 @@ namespace CannyFastMath.Tests {
         }
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.Math.Max processed {count * count} uints in {t}ms");
+        Console.WriteLine($"CannyFastMath.Math.Max processed {count * count} uints in {t}ms");
       }
     }
 
@@ -465,7 +469,7 @@ namespace CannyFastMath.Tests {
         }
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.Math.Min processed {count * count} longs in {t}ms");
+        Console.WriteLine($"CannyFastMath.Math.Min processed {count * count} longs in {t}ms");
       }
     }
 
@@ -493,7 +497,7 @@ namespace CannyFastMath.Tests {
         }
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.Math.Max processed {count * count} ints in {t}ms");
+        Console.WriteLine($"CannyFastMath.Math.Max processed {count * count} ints in {t}ms");
       }
     }
 
@@ -521,7 +525,7 @@ namespace CannyFastMath.Tests {
         }
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.Math.Min processed {count * count} ulongs in {t}ms");
+        Console.WriteLine($"CannyFastMath.Math.Min processed {count * count} ulongs in {t}ms");
       }
     }
 
@@ -549,7 +553,7 @@ namespace CannyFastMath.Tests {
         }
 
         var t = sw.ElapsedMilliseconds;
-        Console.WriteLine($"FastMath.Math.Max processed {count * count} ints in {t}ms");
+        Console.WriteLine($"CannyFastMath.Math.Max processed {count * count} ints in {t}ms");
       }
     }
 
