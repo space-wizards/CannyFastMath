@@ -15,6 +15,7 @@ jobs:
         source-url: https://nuget.pkg.github.com/space-wizards/index.json
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        DOTNET_NOLOGO: 1
         DOTNET_CLI_TELEMETRY_OPTOUT: 1
     - name: Install dependencies
       run: dotnet restore
@@ -33,10 +34,11 @@ jobs:
         DOTNET_CLI_TELEMETRY_OPTOUT: 1
     - name: Pack
       run: dotnet pack -c Release --no-build --include-symbols
-    - name: Push Nupkg to GitHub Packages
-      uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
-      with:
-        nupkg-path: './CannyFastMath/nupkg/*.nupkg'
-        repo-owner: 'space-wizards'
-        gh-user: 'space-wizards'
-        token: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        DOTNET_NOLOGO: 1
+        DOTNET_CLI_TELEMETRY_OPTOUT: 1
+    - name: Push Nupkg
+      run: dotnet nuget push -s nuget.org -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
+      env:
+        DOTNET_NOLOGO: 1
+        DOTNET_CLI_TELEMETRY_OPTOUT: 1
