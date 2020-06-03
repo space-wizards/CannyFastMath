@@ -9,23 +9,17 @@ namespace CannyFastMath {
 
   public static partial class Math {
 
-#pragma warning disable 162
-    // ReSharper disable ConditionIsAlwaysTrueOrFalse
-    // ReSharper disable RedundantCast
-    // ReSharper disable UnreachableCode
-    // ReSharper disable EqualExpressionComparison,CompareOfFloatsByEqualityOperator
-    
+#pragma warning disable 162, 1718
+// ReSharper disable ConditionIsAlwaysTrueOrFalse, RedundantCast, UnreachableCode, EqualExpressionComparison, CompareOfFloatsByEqualityOperator
+
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool IsNaN(double x)
       => x != x;
 
-    // ReSharper restore EqualExpressionComparison,CompareOfFloatsByEqualityOperator
-    // ReSharper restore UnreachableCode
-    // ReSharper restore RedundantCast
-    // ReSharper restore ConditionIsAlwaysTrueOrFalse
-#pragma warning restore 162
+// ReSharper restore ConditionIsAlwaysTrueOrFalse, RedundantCast, UnreachableCode, EqualExpressionComparison, CompareOfFloatsByEqualityOperator
+#pragma warning restore 162, 1718
 
   }
 

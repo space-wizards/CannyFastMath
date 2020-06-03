@@ -46,10 +46,23 @@ namespace CannyFastMath {
       return r.ToScalar();
     }
 
+    [Pure]
+    [NonVersionable, TargetedPatchingOptOut("")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static float RoundSse41(float x, MidpointRounding mpr) {
+      var f = Vector128.CreateScalarUnsafe(x);
+      return (mpr switch {
+        MidpointRounding.ToEven => Sse41.RoundToNearestIntegerScalar(f),
+        MidpointRounding.AwayFromZero => Sse41.RoundCurrentDirectionScalar(f),
+        MidpointRounding.ToZero => Sse41.RoundToZeroScalar(f),
+        MidpointRounding.ToNegativeInfinity => Sse41.RoundToNegativeInfinityScalar(f),
+        MidpointRounding.ToPositiveInfinity => Sse41.RoundToPositiveInfinityScalar(f),
+        _ => throw new ArgumentOutOfRangeException(nameof(mpr), mpr, "Midpoint Rounding must be a valid value.")
+      }).ToScalar();
+    }
+
 #pragma warning disable 162
-    // ReSharper disable ConditionIsAlwaysTrueOrFalse
-    // ReSharper disable RedundantCast
-    // ReSharper disable UnreachableCode
+// ReSharper disable ConditionIsAlwaysTrueOrFalse, RedundantCast, UnreachableCode
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -74,9 +87,13 @@ namespace CannyFastMath {
     public static float Truncate(float a)
       => Sse41.IsSupported ? TruncateSse41(a) : System.MathF.Truncate(a);
 
-    // ReSharper restore UnreachableCode
-    // ReSharper restore RedundantCast
-    // ReSharper restore ConditionIsAlwaysTrueOrFalse
+    [Pure]
+    [NonVersionable, TargetedPatchingOptOut("")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float Round(float a, MidpointRounding mpr)
+      => Sse41.IsSupported ? RoundSse41(a, mpr) : System.MathF.Round(a, mpr);
+
+// ReSharper restore ConditionIsAlwaysTrueOrFalse, RedundantCast, UnreachableCode
 #pragma warning restore 162
 
   }

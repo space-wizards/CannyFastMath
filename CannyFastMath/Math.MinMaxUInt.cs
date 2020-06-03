@@ -24,10 +24,7 @@ namespace CannyFastMath {
     }
 
 #pragma warning disable 162
-    // ReSharper disable ConditionIsAlwaysTrueOrFalse
-    // ReSharper disable RedundantCast
-    // ReSharper disable UnreachableCode
-
+// ReSharper disable ConditionIsAlwaysTrueOrFalse, RedundantCast, UnreachableCode
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -40,9 +37,7 @@ namespace CannyFastMath {
     public static uint Max(uint a, uint b)
       => SlowMathIntegerMinMax ? MaxNaive(a, b) : System.Math.Max(a, b);
 
-    // ReSharper restore UnreachableCode
-    // ReSharper restore RedundantCast
-    // ReSharper restore ConditionIsAlwaysTrueOrFalse
+// ReSharper restore ConditionIsAlwaysTrueOrFalse, RedundantCast, UnreachableCode
 #pragma warning restore 162
 
   }

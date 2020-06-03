@@ -22,19 +22,14 @@ namespace CannyFastMath {
       => (int) Sse2.ConvertToUInt32(Ssse3.Abs(Vector128.CreateScalarUnsafe(a)));
 
 #pragma warning disable 162
-    // ReSharper disable ConditionIsAlwaysTrueOrFalse
-    // ReSharper disable RedundantCast
-    // ReSharper disable UnreachableCode
-
+// ReSharper disable ConditionIsAlwaysTrueOrFalse, RedundantCast, UnreachableCode
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static int Abs(int a)
       => SlowMathIntegerAbs ? Ssse3.IsSupported ? AbsSsse3(a) : AbsNaive(a) : System.Math.Abs(a);
 
-    // ReSharper restore UnreachableCode
-    // ReSharper restore RedundantCast
-    // ReSharper restore ConditionIsAlwaysTrueOrFalse
+// ReSharper restore ConditionIsAlwaysTrueOrFalse, RedundantCast, UnreachableCode
 #pragma warning restore 162
 
   }

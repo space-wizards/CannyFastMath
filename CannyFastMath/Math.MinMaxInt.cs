@@ -22,7 +22,7 @@ namespace CannyFastMath {
       var sel = Selector(a < b);
       return (a & ~ sel) | (b & sel);
     }
-    
+
 #pragma warning disable 162
     // ReSharper disable ConditionIsAlwaysTrueOrFalse
     // ReSharper disable RedundantCast
