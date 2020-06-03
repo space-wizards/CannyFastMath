@@ -17,6 +17,9 @@
     <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
         <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     </PropertyGroup>
+    <ItemGroup>
+        <SourceRoot Include="$(MSBuildThisFileDirectory)/"/>
+    </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\CannyFastMath\CannyFastMath.csproj" />

@@ -20,6 +20,9 @@
     <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
         <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     </PropertyGroup>
+    <ItemGroup>
+        <SourceRoot Include="$(MSBuildThisFileDirectory)/"/>
+    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Fody" Version="6.1.2" PrivateAssets="All" />
