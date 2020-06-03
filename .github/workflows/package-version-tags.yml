@@ -19,14 +19,17 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
       env:
+        DOTNET_NOLOGO: 1
         DOTNET_CLI_TELEMETRY_OPTOUT: 1
     - name: Build & Pack Library
       run: dotnet pack -c Release
       env:
+        DOTNET_NOLOGO: 1
         DOTNET_CLI_TELEMETRY_OPTOUT: 1
     - name: Build & Pack Tool
       run: dotnet pack -c Release -p:IsTool=true
       env:
+        DOTNET_NOLOGO: 1
         DOTNET_CLI_TELEMETRY_OPTOUT: 1
     - name: Pack
       run: dotnet pack -c Release --no-build --include-symbols
