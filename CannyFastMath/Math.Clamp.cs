@@ -11,31 +11,31 @@ namespace CannyFastMath {
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double ClampMinMax(double v, double min, double max)
-      => Min(max, Max(v, max));
+      => Max(min, Min(v, max));
 
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static long ClampMinMax(long v, long min, long max)
-      => Min(max, Max(v, max));
+      => Max(min, Min(v, max));
 
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static int ClampMinMax(int v, int min, int max)
-      => Min(max, Max(v, min));
+      => Max(min, Min(v, max));
 
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static ulong ClampMinMax(ulong v, ulong min, ulong max)
-      => Min(max, Max(v, max));
+      => Max(min, Min(v, max));
 
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static uint ClampMinMax(uint v, uint min, uint max)
-      => Min(max, Max(v, min));
+      => Max(min, Min(v, max));
 
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
