@@ -11,7 +11,7 @@ namespace CannyFastMath {
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Clamp(float v, float min, float max)
-      => Min(max, Max(v, max));
+      => Max(min, Min(v, max));
 
   }
 
