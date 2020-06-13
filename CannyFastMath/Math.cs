@@ -152,31 +152,6 @@ namespace CannyFastMath {
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double DivRem(long a, long b, out long rem)
       => System.Math.DivRem(a, b, out rem);
-
-    [Pure]
-    [NonVersionable, TargetedPatchingOptOut("")]
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static uint Log2(int v)
-      => v <= 0 ? 0 : Log2(unchecked((uint) v));
-
-    [Pure]
-    [NonVersionable, TargetedPatchingOptOut("")]
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static uint Log2(uint v)
-      => unchecked((uint) System.Numerics.BitOperations.Log2(v));
-
-    [Pure]
-    [NonVersionable, TargetedPatchingOptOut("")]
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static ulong Log2(long v)
-      => v <= 0 ? 0 : Log2(unchecked((ulong) v));
-
-    [Pure]
-    [NonVersionable, TargetedPatchingOptOut("")]
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static ulong Log2(ulong v)
-      => unchecked((ulong) System.Numerics.BitOperations.Log2(v));
-
   }
 
 }

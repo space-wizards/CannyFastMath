@@ -24,6 +24,12 @@ namespace CannyFastMath {
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float Log(float v, float b)
+      => System.MathF.Log(v, b);
+
+    [Pure]
+    [NonVersionable, TargetedPatchingOptOut("")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Log2(float v)
       => System.MathF.Log2(v);
 
@@ -32,6 +38,12 @@ namespace CannyFastMath {
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Log10(float v)
       => System.MathF.Log10(v);
+    
+    [Pure]
+    [NonVersionable, TargetedPatchingOptOut("")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static float Pow(float v, float b)
+      => System.MathF.Pow(v, b);
 
   }
 
