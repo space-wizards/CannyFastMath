@@ -20,7 +20,7 @@ namespace CannyFastMath {
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static uint MaxNaive(uint a, uint b) {
       var sel = (uint) Selector(a < b);
-      return (a & sel) | (b & ~ sel);
+      return (a & ~sel) | (b & sel);
     }
 
 #pragma warning disable 162
