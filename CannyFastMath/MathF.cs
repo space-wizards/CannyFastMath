@@ -11,7 +11,11 @@ namespace CannyFastMath {
   [PublicAPI]
   public static partial class MathF {
 
-    public const float Ɛ = 1e-7f;
+    // ReSharper disable InconsistentNaming
+    public const float EPSILON = 1.08420217249e-19f;
+
+    public const float Ɛ = EPSILON;
+    // ReSharper restore InconsistentNaming
 
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]

@@ -7,8 +7,15 @@ namespace CannyFastMath {
 
   public static partial class MathF {
 
-    // ReSharper disable once InconsistentNaming
-    public const float π = System.MathF.PI;
+    // ReSharper disable InconsistentNaming
+    public const float PI = (float) Math.PI;
+
+    public const float TAU = (float) Math.TAU;
+
+    public const float π = PI;
+
+    public const float τ = TAU;
+    // ReSharper restore InconsistentNaming
 
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]

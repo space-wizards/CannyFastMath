@@ -8,7 +8,7 @@
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/space-wizards/CannyFastMath.git</RepositoryUrl>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
-        <Version>1.0.2</Version>
+        <Version>1.0.3</Version>
         <Copyright>Copyright © 2020 Tyler Young</Copyright>
         <Authors>Tyler Young</Authors>
         <Company />
@@ -21,7 +21,7 @@
         <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     </PropertyGroup>
     <ItemGroup>
-        <SourceRoot Include="$(MSBuildThisFileDirectory)/"/>
+        <SourceRoot Include="$(MSBuildThisFileDirectory)/" />
     </ItemGroup>
 
     <ItemGroup>
@@ -42,7 +42,7 @@
     <ItemGroup>
         <None Remove="*.csproj.*" />
     </ItemGroup>
-    
+
     <ItemGroup>
         <None Include="..\LICENSE">
             <Link>LICENSE</Link>

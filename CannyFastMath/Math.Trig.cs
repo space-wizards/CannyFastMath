@@ -7,8 +7,15 @@ namespace CannyFastMath {
 
   public static partial class Math {
 
-    // ReSharper disable once InconsistentNaming
-    public const double π = System.Math.PI;
+    // ReSharper disable InconsistentNaming
+    public const double PI = 3.1415926535_8979323846_2643383279_5028841971_6939937510;
+
+    public const double TAU = 6.2831853071_7958647692_5286766559_0057683943_3879875021;
+
+    public const double π = PI;
+
+    public const double τ = TAU;
+    // ReSharper restore InconsistentNaming
 
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]

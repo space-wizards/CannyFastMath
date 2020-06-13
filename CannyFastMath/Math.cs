@@ -15,7 +15,11 @@ namespace CannyFastMath {
 
     private const bool SlowMathIntegerAbs = true;
 
-    public const double Ɛ = 1e-17;
+    // ReSharper disable InconsistentNaming
+    public const double EPSILON = 1.49166814624004134865819306309E-154f;
+
+    public const double Ɛ = EPSILON;
+    // ReSharper restore InconsistentNaming
 
     [Pure]
     [NonVersionable, TargetedPatchingOptOut("")]
@@ -152,6 +156,7 @@ namespace CannyFastMath {
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double DivRem(long a, long b, out long rem)
       => System.Math.DivRem(a, b, out rem);
+
   }
 
 }
