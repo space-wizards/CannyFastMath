@@ -44,9 +44,9 @@ namespace CannyFastMath {
     private static long ClampNaive(long v, long min, long max) {
       var lt = Selector(v < min);
       var gt = Selector(v > max);
-      var oor = lt | gt;
+      var oor = ~(lt | gt);
 
-      return (v & ~ oor) | (lt & min) | (gt & max);
+      return (v & oor) | (lt & min) | (gt & max);
     }
 
     [Pure, JbPure]
@@ -55,9 +55,9 @@ namespace CannyFastMath {
     private static int ClampNaive(int v, int min, int max) {
       var lt = Selector(v < min);
       var gt = Selector(v > max);
-      var oor = lt | gt;
+      var oor = ~(lt | gt);
 
-      return (v & ~ oor) | (lt & min) | (gt & max);
+      return (v & oor) | (lt & min) | (gt & max);
     }
 
     [Pure, JbPure]
@@ -66,9 +66,9 @@ namespace CannyFastMath {
     private static ulong ClampNaive(ulong v, ulong min, ulong max) {
       var lt = (ulong) Selector(v < min);
       var gt = (ulong) Selector(v > max);
-      var oor = lt | gt;
+      var oor = ~(lt | gt);
 
-      return (v & ~ oor) | (lt & min) | (gt & max);
+      return (v & oor) | (lt & min) | (gt & max);
     }
 
     [Pure, JbPure]
@@ -77,9 +77,9 @@ namespace CannyFastMath {
     private static uint ClampNaive(uint v, uint min, uint max) {
       var lt = (uint) Selector(v < min);
       var gt = (uint) Selector(v > max);
-      var oor = lt | gt;
+      var oor = ~(lt | gt);
 
-      return (v & ~ oor) | (lt & min) | (gt & max);
+      return (v & oor) | (lt & min) | (gt & max);
     }
 
 #pragma warning disable 162
