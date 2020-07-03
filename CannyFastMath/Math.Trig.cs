@@ -1,7 +1,8 @@
 using System.Runtime;
 using System.Runtime.CompilerServices;
 using System.Runtime.Versioning;
-using JetBrains.Annotations;
+using PureAttribute = System.Diagnostics.Contracts.PureAttribute;
+using JbPureAttribute = JetBrains.Annotations.PureAttribute;
 
 namespace CannyFastMath {
 
@@ -17,19 +18,19 @@ namespace CannyFastMath {
     public const double τ = TAU;
     // ReSharper restore InconsistentNaming
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Sin(double f)
       => System.Math.Sin(f);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Cos(double f)
       => System.Math.Cos(f);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void SinCos(double v, out double sin, out double cos) {
@@ -37,37 +38,37 @@ namespace CannyFastMath {
       cos = Cos(v);
     }
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static (double Sin, double Cos) SinCos(double v)
       => (Sin(v), Cos(v));
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Asin(double f)
       => System.Math.Asin(f);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Acos(double f)
       => System.Math.Acos(f);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Tan(double f)
       => System.Math.Tan(f);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Atan(double f)
       => System.Math.Atan(f);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Atan2(double f, double n)

@@ -1,21 +1,22 @@
-using System.Diagnostics.Contracts;
 using System.Runtime;
 using System.Runtime.CompilerServices;
 using System.Runtime.Intrinsics;
 using System.Runtime.Intrinsics.X86;
 using System.Runtime.Versioning;
+using PureAttribute = System.Diagnostics.Contracts.PureAttribute;
+using JbPureAttribute = JetBrains.Annotations.PureAttribute;
 
 namespace CannyFastMath {
 
   public static partial class Math {
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static int AbsNaive(int a)
       => a * Selector(a < 0);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static int AbsSsse3(int a)
@@ -23,7 +24,7 @@ namespace CannyFastMath {
 
 #pragma warning disable 162
 // ReSharper disable ConditionIsAlwaysTrueOrFalse, RedundantCast, UnreachableCode
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static int Abs(int a)

@@ -1,7 +1,8 @@
-using System.Diagnostics.Contracts;
 using System.Runtime;
 using System.Runtime.CompilerServices;
 using System.Runtime.Versioning;
+using PureAttribute = System.Diagnostics.Contracts.PureAttribute;
+using JbPureAttribute = JetBrains.Annotations.PureAttribute;
 
 namespace CannyFastMath {
 
@@ -17,19 +18,19 @@ namespace CannyFastMath {
     public const float τ = TAU;
     // ReSharper restore InconsistentNaming
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Sin(float f)
       => System.MathF.Sin(f);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Cos(float f)
       => System.MathF.Cos(f);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static void SinCos(float v, out float sin, out float cos) {
@@ -37,31 +38,31 @@ namespace CannyFastMath {
       cos = Cos(v);
     }
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Asin(float f)
       => System.MathF.Asin(f);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Acos(float f)
       => System.MathF.Acos(f);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Tan(float f)
       => System.MathF.Tan(f);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Atan(float f)
       => System.MathF.Atan(f);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Atan2(float f, float n)

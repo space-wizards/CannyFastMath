@@ -1,10 +1,10 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime;
 using System.Runtime.CompilerServices;
-using System.Runtime.Intrinsics;
-using System.Runtime.Intrinsics.X86;
 using System.Runtime.Versioning;
 using JetBrains.Annotations;
+using PureAttribute = System.Diagnostics.Contracts.PureAttribute;
+using JbPureAttribute = JetBrains.Annotations.PureAttribute;
 
 namespace CannyFastMath {
 
@@ -21,7 +21,7 @@ namespace CannyFastMath {
     public const double Ɛ = EPSILON;
     // ReSharper restore InconsistentNaming
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     [SuppressMessage("ReSharper", "EqualExpressionComparison")]
@@ -29,73 +29,73 @@ namespace CannyFastMath {
     private static bool AreAnyNaN(double a, double b)
       => IsNaN(a) || IsNaN(b);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static byte One(bool v)
       => Unsafe.As<bool, byte>(ref Unsafe.AsRef(v));
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static int Selector(bool v)
       => Unsafe.As<bool, sbyte>(ref Unsafe.AsRef(v)) * -1;
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Deg2Rad(double degrees)
       => degrees * (π / 180);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Rad2Deg(double rads)
       => rads * (180 / π);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double FusedMultiplyAdd(double x, double y, double z)
       => System.Math.FusedMultiplyAdd(x, y, z);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Abs(double f)
       => System.Math.Abs(f);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Sqrt(double f)
       => System.Math.Sqrt(f);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Cbrt(double f)
       => System.Math.Cbrt(f);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Median(double a, double b, double c)
       => Max(Min(a, b), Min(Max(a, b), c));
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool ApproxEquals(this double a, double b, double allowedError = Ɛ)
       => Abs(a - b) - allowedError > 0;
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double Interpolate(double a, double b, double t)
       => FusedMultiplyAdd(t, b, FusedMultiplyAdd(-t, a, a));
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public static double CubicInterpolate(double a0, double a1, double b0, double b1, double t)
@@ -115,43 +115,19 @@ namespace CannyFastMath {
         a1
       );
 
-    [Pure]
-    [NonVersionable, TargetedPatchingOptOut("")]
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static double Round(double v)
-      => System.Math.Round(v);
-
-    [Pure]
-    [NonVersionable, TargetedPatchingOptOut("")]
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static double Floor(double v)
-      => System.Math.Floor(v);
-
-    [Pure]
-    [NonVersionable, TargetedPatchingOptOut("")]
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static double Ceiling(double v)
-      => System.Math.Ceiling(v);
-
-    [Pure]
-    [NonVersionable, TargetedPatchingOptOut("")]
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static double Truncate(double v)
-      => System.Math.Truncate(v);
-
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double ScaleB(double x, int n)
       => System.Math.ScaleB(x, n);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double DivRem(int a, int b, out int rem)
       => System.Math.DivRem(a, b, out rem);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static double DivRem(long a, long b, out long rem)

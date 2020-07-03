@@ -1,7 +1,8 @@
-using System.Diagnostics.Contracts;
 using System.Runtime;
 using System.Runtime.CompilerServices;
 using System.Runtime.Versioning;
+using PureAttribute = System.Diagnostics.Contracts.PureAttribute;
+using JbPureAttribute = JetBrains.Annotations.PureAttribute;
 
 namespace CannyFastMath {
 
@@ -45,37 +46,37 @@ namespace CannyFastMath {
     public const float ln64 = LOG64;
     // ReSharper restore InconsistentNaming
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Exp(float v)
       => System.MathF.Exp(v);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Log(float v)
       => System.MathF.Log(v);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Log(float v, float b)
       => System.MathF.Log(v, b);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Log2(float v)
       => System.MathF.Log2(v);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Log10(float v)
       => System.MathF.Log10(v);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Pow(float v, float b)

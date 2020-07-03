@@ -1,9 +1,8 @@
 using System.Runtime;
 using System.Runtime.CompilerServices;
-using System.Runtime.Intrinsics;
-using System.Runtime.Intrinsics.X86;
 using System.Runtime.Versioning;
-using JetBrains.Annotations;
+using PureAttribute = System.Diagnostics.Contracts.PureAttribute;
+using JbPureAttribute = JetBrains.Annotations.PureAttribute;
 
 namespace CannyFastMath {
 
@@ -12,7 +11,7 @@ namespace CannyFastMath {
 #pragma warning disable 162, 1718
 // ReSharper disable ConditionIsAlwaysTrueOrFalse, RedundantCast, UnreachableCode, EqualExpressionComparison, CompareOfFloatsByEqualityOperator
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool IsNaN(double x)

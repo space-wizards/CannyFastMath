@@ -1,27 +1,28 @@
-using System.Diagnostics.Contracts;
 using System.Runtime;
 using System.Runtime.CompilerServices;
 using System.Runtime.Intrinsics;
 using System.Runtime.Intrinsics.X86;
 using System.Runtime.Versioning;
+using PureAttribute = System.Diagnostics.Contracts.PureAttribute;
+using JbPureAttribute = JetBrains.Annotations.PureAttribute;
 
 namespace CannyFastMath {
 
   public static partial class MathF {
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static float MinNaive(float a, float b)
       => a > b ? b : a;
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static float MaxNaive(float a, float b)
       => a > b ? a : b;
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static float MinSse(float a, float b)
@@ -30,7 +31,7 @@ namespace CannyFastMath {
         Vector128.CreateScalarUnsafe(b)
       ).ToScalar();
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static float MaxSse(float a, float b)
@@ -39,7 +40,7 @@ namespace CannyFastMath {
         Vector128.CreateScalarUnsafe(b)
       ).ToScalar();
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Min(float a, float b) {
@@ -48,7 +49,7 @@ namespace CannyFastMath {
       return Sse.IsSupported ? MinSse(a, b) : MinNaive(a, b);
     }
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static float Max(float a, float b) {

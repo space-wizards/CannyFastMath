@@ -1,13 +1,14 @@
-using System.Diagnostics.Contracts;
 using System.Runtime;
 using System.Runtime.CompilerServices;
 using System.Runtime.Versioning;
+using PureAttribute = System.Diagnostics.Contracts.PureAttribute;
+using JbPureAttribute = JetBrains.Annotations.PureAttribute;
 
 namespace CannyFastMath {
 
   public static partial class Math {
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static int MinNaive(int a, int b) {
@@ -15,7 +16,7 @@ namespace CannyFastMath {
       return (a & sel) | (b & ~ sel);
     }
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static int MaxNaive(int a, int b) {
@@ -28,13 +29,13 @@ namespace CannyFastMath {
     // ReSharper disable RedundantCast
     // ReSharper disable UnreachableCode
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static int Min(int a, int b)
       => SlowMathIntegerMinMax ? MinNaive(a, b) : System.Math.Min(a, b);
 
-    [Pure]
+    [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static int Max(int a, int b)
