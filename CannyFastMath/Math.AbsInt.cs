@@ -14,7 +14,7 @@ namespace CannyFastMath {
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static int AbsNaive(int a)
-      => a * Selector(a < 0);
+      => a * (Selector(a < 0) | 1);
 
     [Pure, JbPure]
     [NonVersionable, TargetedPatchingOptOut("")]

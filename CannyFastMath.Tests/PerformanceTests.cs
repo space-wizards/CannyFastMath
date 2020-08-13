@@ -119,7 +119,7 @@ namespace CannyFastMath.Tests {
     }
 
     [Test]
-    [TestCase(2500000)]
+    [TestCase(10000000)]
     public void AbsIntPerf(int count) {
       var data = new int[count];
       PopulateRandomData(data);

@@ -12,7 +12,7 @@ namespace CannyFastMath {
     [NonVersionable, TargetedPatchingOptOut("")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static long AbsNaive(long a)
-      => a * Selector(a < 0);
+      => a * (Selector(a < 0) | 1);
 
 #pragma warning disable 162
 // ReSharper disable ConditionIsAlwaysTrueOrFalse, RedundantCast, UnreachableCode
